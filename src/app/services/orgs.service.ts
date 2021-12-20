@@ -11,8 +11,8 @@ export class OrgsService {
 
   constructor(private http: HttpClient) { }
       
-  getData(): any {
-    return this.http.get<Orgs[]>(this.apiUrl);
+  getData(page:number): any {
+    return this.http.get<Orgs[]>(this.apiUrl + "?page=" + page);
   }
 
 }
