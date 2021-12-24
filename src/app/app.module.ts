@@ -10,7 +10,9 @@ import {Routes, RouterModule} from '@angular/router';
 
 import { StoreModule } from "@ngrx/store";
 import { AboutComponent } from './about/about.component';
-import {reducer} from './store/reducer'
+import { counterReducer } from './store/reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { Effects } from './store/effects';
 
 const appRoutes: Routes =[
   { path: 'home', component: HomeComponent},
@@ -25,7 +27,8 @@ const appRoutes: Routes =[
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
-    StoreModule.forRoot({ count: reducer }),
+    StoreModule.forRoot({ count: counterReducer }),
+    EffectsModule.forRoot([Effects]),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

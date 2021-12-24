@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {Orgs} from '../Orgs'
+import { ToDo, ToDoContent } from '../store/model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,8 @@ export class OrgsService {
 
   constructor(private http: HttpClient) { }
       
-  getData(page:number): any {
-    return this.http.get<Orgs[]>(this.apiUrl + "?page=" + page);
+  getData(page:number): Observable<ToDoContent> {
+    return this.http.get<ToDoContent>(this.apiUrl + "?page=" + page);
   }
 
 }
